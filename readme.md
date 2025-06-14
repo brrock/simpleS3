@@ -26,11 +26,6 @@ services:
       # Or mount to host directory:
       # - ./s3-data:/data
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:9000/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
     networks:
       - s3-network
 

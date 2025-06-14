@@ -18,8 +18,8 @@ services:
       - HOST=0.0.0.0
       - PORT=9000
       - BUCKET=my-bucket
-      - ACCESS_KEY=minioadmin
-      - SECRET_KEY=minioadmin123
+      - ACCESS_KEY=admin
+      - SECRET_KEY=admin
       - DATA_DIR=/data
     volumes:
       - s3_data:/data

@@ -1,5 +1,5 @@
 # simpleS3 - very simple s3 server - written in rust 
-Easily hostable in docker compose and docker. Simple and fast. Currently only supports a single bucket.
+Easily hostable in docker compose and docker. Simple and fast. Currently only supports a single bucket. The docker image is under 8mb so it is incredibly small.
 ## How to run
 ```sh
 cargo build --release

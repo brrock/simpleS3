@@ -22,11 +22,9 @@ RUN touch src/main.rs && cargo build --release
 FROM alpine:latest
 
 # Install runtime dependencies
-RUN apk add --no-cache ca-certificates
+RUN apk add --no-cache ca-certificates wget
 
 # Create app user
-RUN addgroup -g 1000 s3user && \
-    adduser -D -s /bin/sh -u 1000 -G s3user s3user
 
 # Create data directory
 RUN mkdir -p /data && chown s3user:s3user /data

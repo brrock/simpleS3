@@ -25,7 +25,8 @@ FROM alpine:latest
 RUN apk add --no-cache ca-certificates wget
 
 # Create app user
-
+RUN addgroup -g 1000 s3user && \
+    adduser -D -s /bin/sh -u 1000 -G s3user s3user
 # Create data directory
 RUN mkdir -p /data && chown s3user:s3user /data
 
@@ -48,9 +49,6 @@ ENV ACCESS_KEY=mykey
 ENV SECRET_KEY=mysecret
 ENV DATA_DIR=/data
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:${PORT}/ || exit 1
 
 # Expose port
 EXPOSE 9000
